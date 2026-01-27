@@ -1,0 +1,28 @@
+project:
+  type: website
+
+website:
+  title: "Caroline S. Glick"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Tutorials
+        menu:
+        - href: hpc.qmd
+          text: HPC
+        - href: methods.qmd
+          text: Methods
+      - href: linux.qmd
+        text: Linux Commands
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    mathjax: true
+
+
+
+

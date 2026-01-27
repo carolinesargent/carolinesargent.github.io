@@ -1,0 +1,74 @@
+---
+title: "The Palmetto Cluster"
+---
+
+## What is the Palmetto Cluster?
+The Palmetto Cluster is a group of computers on Clemson's campus. These computers are much more powerful than your laptop or even desktops in the lab. 
+
+Running computational chemistry calculations requires the use of these powerful computers. For research, you will log into the Palmetto Cluster remotely. 
+
+## Logging in
+1. Open your termial (Terminal on Macs, PowerShell on Windows)
+2. Type **`ssh [username]@slogin.palmetto.clemson.edu`**
+3. Enter your password
+
+This logs you in to a computer called the "login node". "Node" is a computing term for a single computational unit within a cluster of computers.
+
+## Directory Structure
+Just as your laptop has folders and files, you can create folders and files on Palmetto. In computing, folders are called directories.
+
+1. Make a new directory to store your tutorials. 
+   **`mkdir tutorials`**
+2. To check your work, type **`ls`** to list all directories and files. You should see `tutorials`.
+3. Make a file in the tutorials directory. First, move into that directory.
+   **`cd tutorials`**
+4. What would you see if you typed **`ls`** here? Try it to check your understanding. 
+5. To open a new file called `my_file`, type
+   **`vim my_file`**
+   This opens a new file with an editor called `vim`.
+6. 
+
+## Check your understanding
+
+<div class="quiz">
+  <p><b>Which physical effect is missing from Hartree–Fock?</b></p>
+  <button onclick="wrong()">Exchange</button>
+  <button onclick="correct()">Dynamic correlation</button>
+  <button onclick="wrong()">Pauli exclusion</button>
+</div>
+
+<script>
+function correct() {
+  alert("Correct! HF includes exchange but neglects electron correlation.");
+}
+function wrong() {
+  alert("Try again.");
+}
+</script>
+
+
+<div id="water_viewer" style="width: 350px; height: 350px; position: relative;"></div>
+
+<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+<script>
+  const element = document.getElementById("water_viewer");
+  const viewer = $3Dmol.createViewer(element, {
+    backgroundColor: "white"
+  });
+
+  const xyz = `
+3
+water
+O  0.000000  0.000000  0.000000
+H  0.757160  0.586260  0.000000
+H -0.757160  0.586260  0.000000
+`;
+
+  viewer.addModel(xyz, "xyz");
+  viewer.setStyle({}, {stick: {radius: 0.15}});
+  viewer.addStyle({elem: "O"}, {sphere: {scale: 0.35}});
+  viewer.addStyle({elem: "H"}, {sphere: {scale: 0.25}});
+  viewer.zoomTo();
+  viewer.render();
+</script>
+

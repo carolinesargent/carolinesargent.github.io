@@ -1,0 +1,14 @@
+---
+title: "Linux Commands"
+---
+
+## What is the Palmetto Cluster?
+The Palmetto Cluster is a group of computers on Clemson's campus. These computers are much more powerful than your laptop or even desktops in the lab. 
+
+Running computational chemistry calculations requires the use of these powerful computers. For research, you will log into the Palmetto Cluster remotely. 
+
+## Logging in
+1. Open your termial (Terminal on Macs, PowerShell on Windows)
+2. Type **`ssh [username]@slogin.palmetto.clemson.edu`**
+3. Enter your password
+
