@@ -107,6 +107,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./methods.qmd">
  <span class="dropdown-text">Methods</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./aerosols.html">
+ <span class="dropdown-text">Aerosols</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -131,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-the-palmetto-cluster" id="toc-what-is-the-palmetto-cluster" class="nav-link active" data-scroll-target="#what-is-the-palmetto-cluster">What is the Palmetto Cluster?</a></li>
   <li><a href="#logging-in" id="toc-logging-in" class="nav-link" data-scroll-target="#logging-in">Logging in</a></li>
-  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory Structure</a></li>
+  <li><a href="#directory-structure-and-creating-files" id="toc-directory-structure-and-creating-files" class="nav-link" data-scroll-target="#directory-structure-and-creating-files">Directory Structure and Creating Files</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
   </ul>
 </nav>
@@ -172,34 +176,52 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>This logs you in to a computer called the “login node”. “Node” is a computing term for a single computational unit within a cluster of computers.</p>
 </section>
-<section id="directory-structure" class="level2">
-<h2 class="anchored" data-anchor-id="directory-structure">Directory Structure</h2>
+<section id="directory-structure-and-creating-files" class="level2">
+<h2 class="anchored" data-anchor-id="directory-structure-and-creating-files">Directory Structure and Creating Files</h2>
 <p>Just as your laptop has folders and files, you can create folders and files on Palmetto. In computing, folders are called directories.</p>
 <ol type="1">
-<li>Make a new directory to store your tutorials. <strong><code>mkdir tutorials</code></strong></li>
-<li>To check your work, type <strong><code>ls</code></strong> to list all directories and files. You should see <code>tutorials</code>.</li>
-<li>Make a file in the tutorials directory. First, move into that directory. <strong><code>cd tutorials</code></strong></li>
-<li>What would you see if you typed <strong><code>ls</code></strong> here? Try it to check your understanding.</li>
-<li>To open a new file called <code>my_file</code>, type <strong><code>vim my_file</code></strong> This opens a new file with an editor called <code>vim</code>.</li>
-<li></li>
+<li><p>Make a new directory to store your tutorials.</p>
+<p><strong><code>mkdir tutorials</code></strong></p></li>
+<li><p>To check your work, type <strong><code>ls</code></strong> to list all directories and files. You should see <code>tutorials</code>.</p></li>
+<li><p>Make a file in the tutorials directory. First, move into that directory.</p>
+<p><strong><code>cd tutorials</code></strong></p></li>
+<li><p>What would you see if you typed <strong><code>ls</code></strong> here? Try it to check your understanding.</p></li>
+<li><p>To open a new file called <code>my_file</code>, type</p>
+<p><strong><code>vim my_file</code></strong></p>
+<p>This opens a new file with an editor called <code>vim</code>.</p></li>
+<li><p>To write in this file, press <code>a</code> for <code>append</code>. Then begin typing a phrase.</p></li>
+<li><p>Once you have finished typing, press <code>esc</code> to leave editing mode.</p></li>
+<li><p>To save and close your file, type <code>:wq</code>. <code>w</code> is for <code>write</code> (or save) and <code>q</code> is for <code>quit</code>.</p></li>
 </ol>
 </section>
 <section id="check-your-understanding" class="level2">
 <h2 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h2>
 <div class="quiz">
 <p>
-<b>Which physical effect is missing from Hartree–Fock?</b>
+<b>If you were to type ls here, what would you see?</b>
 </p>
-<p><button onclick="wrong()">Exchange</button> <button onclick="correct()">Dynamic correlation</button> <button onclick="wrong()">Pauli exclusion</button></p>
+<p><button onclick="wrong()">No files</button> <button onclick="correct()">A file named my_file</button></p>
 </div>
 <script>
 function correct() {
-  alert("Correct! HF includes exchange but neglects electron correlation.");
+  alert("Correct! ls lists files in your directory which now includes your new file);
 }
 function wrong() {
   alert("Try again.");
 }
 </script>
+<ol start="9" type="1">
+<li><p>Now, let’s add to the file. Paste the following text into <code>my_file</code>. To paste, open the file, type <code>a</code>, and right-click paste. Save and close using <code>:wq</code>.</p></li>
+<li><p>There are a few options for viewing the contents of this file.</p></li>
+</ol>
+<ul>
+<li>Use cat to view all contents. <code>cat my_file</code></li>
+<li>Use tail to view the end of the file. <code>tail my_file</code></li>
+<li>Use head to view the beginning of the file. <code>head my_file</code></li>
+</ul>
+<ol start="11" type="1">
+<li>Insert vim tutorial</li>
+</ol>
 <div id="water_viewer" style="width: 350px; height: 350px; position: relative;">
 
 </div>

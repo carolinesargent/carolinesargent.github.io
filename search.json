@@ -21,18 +21,18 @@
     "text": "Logging in\n\nOpen your termial (Terminal on Macs, PowerShell on Windows)\nType ssh [username]@slogin.palmetto.clemson.edu\nEnter your password\n\nThis logs you in to a computer called the “login node”. “Node” is a computing term for a single computational unit within a cluster of computers."
   },
   {
-    "objectID": "hpc.html#directory-structure",
-    "href": "hpc.html#directory-structure",
+    "objectID": "hpc.html#directory-structure-and-creating-files",
+    "href": "hpc.html#directory-structure-and-creating-files",
     "title": "The Palmetto Cluster",
-    "section": "Directory Structure",
-    "text": "Directory Structure\nJust as your laptop has folders and files, you can create folders and files on Palmetto. In computing, folders are called directories.\n\nMake a new directory to store your tutorials. mkdir tutorials\nTo check your work, type ls to list all directories and files. You should see tutorials.\nMake a file in the tutorials directory. First, move into that directory. cd tutorials\nWhat would you see if you typed ls here? Try it to check your understanding.\nTo open a new file called my_file, type vim my_file This opens a new file with an editor called vim."
+    "section": "Directory Structure and Creating Files",
+    "text": "Directory Structure and Creating Files\nJust as your laptop has folders and files, you can create folders and files on Palmetto. In computing, folders are called directories.\n\nMake a new directory to store your tutorials.\nmkdir tutorials\nTo check your work, type ls to list all directories and files. You should see tutorials.\nMake a file in the tutorials directory. First, move into that directory.\ncd tutorials\nWhat would you see if you typed ls here? Try it to check your understanding.\nTo open a new file called my_file, type\nvim my_file\nThis opens a new file with an editor called vim.\nTo write in this file, press a for append. Then begin typing a phrase.\nOnce you have finished typing, press esc to leave editing mode.\nTo save and close your file, type :wq. w is for write (or save) and q is for quit."
   },
   {
     "objectID": "hpc.html#check-your-understanding",
     "href": "hpc.html#check-your-understanding",
     "title": "The Palmetto Cluster",
     "section": "Check your understanding",
-    "text": "Check your understanding\n\n\nWhich physical effect is missing from Hartree–Fock?\n\nExchange Dynamic correlation Pauli exclusion"
+    "text": "Check your understanding\n\n\nIf you were to type ls here, what would you see?\n\nNo files A file named my_file\n\n\n\nNow, let’s add to the file. Paste the following text into my_file. To paste, open the file, type a, and right-click paste. Save and close using :wq.\nThere are a few options for viewing the contents of this file.\n\n\nUse cat to view all contents. cat my_file\nUse tail to view the end of the file. tail my_file\nUse head to view the beginning of the file. head my_file\n\n\nInsert vim tutorial"
   },
   {
     "objectID": "index.html",
@@ -40,6 +40,48 @@
     "title": "website",
     "section": "",
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "aerosols.html",
+    "href": "aerosols.html",
+    "title": "Aerosols",
+    "section": "",
+    "text": "Description."
+  },
+  {
+    "objectID": "aerosols.html#configurational-sampling",
+    "href": "aerosols.html#configurational-sampling",
+    "title": "Aerosols",
+    "section": "",
+    "text": "Description."
+  },
+  {
+    "objectID": "aerosols.html#dft-optimizations",
+    "href": "aerosols.html#dft-optimizations",
+    "title": "Aerosols",
+    "section": "DFT Optimizations",
+    "text": "DFT Optimizations\nTo start, make sure all xyz files from configurational sampling are in folders GA/20K, GA/20K-1, GA/200K, GA/PM7, etc.\nAt the same level as GA, make the directories QM/wb97xd-ultrafine. Copy all uniqueStructures-*.data files to wb97xd-ultrafine/.\nWithin wb97xd-ultrafine, run opt_wb97xd.py uniqueStructures-PM7.data -h to see options for submission.\nOnce you are ready, run the command with your options set. Then, run sbatch run_gaussian.slurm to submit all jobs listed in the com_list.txt file.\nConfirm that all optimizations have completed by running check_opts.py. Any files that terminated early due to wall time limits will be printed to the screen.\nTo rerun these, you can either:\n\nsbatch --array=17,33 run_gaussian.slurm using the array number of the jobs that need to be rerun.\nUpdate com_list.txt to include only the jobs that need rerunning.\n\nWait for these jobs to finish, then run check_opts.py one more time to ensure that all optimizations have completed."
+  },
+  {
+    "objectID": "aerosols.html#determine-unique-structures",
+    "href": "aerosols.html#determine-unique-structures",
+    "title": "Aerosols",
+    "section": "Determine Unique Structures",
+    "text": "Determine Unique Structures\ngetRotConsts-wb97xd.csh\nsimilarityAnalysis.py uf rotConstsData_C"
+  },
+  {
+    "objectID": "aerosols.html#process-data",
+    "href": "aerosols.html#process-data",
+    "title": "Aerosols",
+    "section": "Process Data",
+    "text": "Process Data"
+  },
+  {
+    "objectID": "aerosols.html#dlpno-single-point-energies",
+    "href": "aerosols.html#dlpno-single-point-energies",
+    "title": "Aerosols",
+    "section": "DLPNO Single Point Energies",
+    "text": "DLPNO Single Point Energies\nMake a directory within QM/wb97xd-ultrafine called dlpno.\nCopy uniqueStructures-uf.data to dlpno/. Move into dlpno, and edit the dlpno/uniqueStructures-uf.data to include only the files with relative energies within 6-8 kcal/mol. (If you are unsure, consult someone.)\nRun make_dlpno_inps.py to generate DLPNO-CCSD(T) input files and the slurm script. This script has the following options:\n\n\n\n\n\n\n\n\n\nFlag\nDefault\nDescription\nOptions\n\n\n\n\n--aug\n--aug=haug\naugmentation type of basis set\nhaug, aug, or noaug\n\n\n--zeta\n--zeta=D,T,Q\nbasis set zeta-levels\nD,T,Q,5,6\n\n\n--nproc\n--nproc=12\nnumber of cores/processors\nany integer (check freestd)\n\n\n--mem\n--mem=100g\namount of SLURM memory per job\nany integer followed by g\n\n\n--time\n--time=24:00:00\nwall time per job\nhours:minutes:seconds\n\n\n--constraint\n--constraint=cpu_gen_cascadelake\nCPU name\ncpu_gen_broadwell, cpu_gen_sapphirerapids, cpu_gen_cascadelake, or none\n\n\n--scratch\n--scratch=shared\nshared or local scratch\nshared, local"
   },
   {
     "objectID": "linux.html",
