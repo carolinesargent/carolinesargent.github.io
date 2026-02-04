@@ -13,6 +13,8 @@ website:
           text: HPC
         - href: methods.qmd
           text: Methods
+        - href: aerosols.qmd
+          text: Aerosols
       - href: linux.qmd
         text: Linux Commands
 

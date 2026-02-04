@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Palmetto Cluster – Caroline S. Glick</title>
+<title>Aerosols – Caroline S. Glick</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,10 +133,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-the-palmetto-cluster" id="toc-what-is-the-palmetto-cluster" class="nav-link active" data-scroll-target="#what-is-the-palmetto-cluster">What is the Palmetto Cluster?</a></li>
-  <li><a href="#logging-in" id="toc-logging-in" class="nav-link" data-scroll-target="#logging-in">Logging in</a></li>
-  <li><a href="#directory-structure-and-creating-files" id="toc-directory-structure-and-creating-files" class="nav-link" data-scroll-target="#directory-structure-and-creating-files">Directory Structure and Creating Files</a></li>
-  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
+  <li><a href="#configurational-sampling" id="toc-configurational-sampling" class="nav-link active" data-scroll-target="#configurational-sampling">Configurational Sampling</a></li>
+  <li><a href="#dft-optimizations" id="toc-dft-optimizations" class="nav-link" data-scroll-target="#dft-optimizations">DFT Optimizations</a></li>
+  <li><a href="#determine-unique-structures" id="toc-determine-unique-structures" class="nav-link" data-scroll-target="#determine-unique-structures">Determine Unique Structures</a></li>
+  <li><a href="#process-data" id="toc-process-data" class="nav-link" data-scroll-target="#process-data">Process Data</a></li>
+  <li><a href="#dlpno-single-point-energies" id="toc-dlpno-single-point-energies" class="nav-link" data-scroll-target="#dlpno-single-point-energies">DLPNO Single Point Energies</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
 </nav>
     </div>
@@ -145,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Palmetto Cluster</h1>
+<h1 class="title">Aerosols</h1>
 </div>
 
 
@@ -162,91 +164,108 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-is-the-palmetto-cluster" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-the-palmetto-cluster">What is the Palmetto Cluster?</h2>
-<p>The Palmetto Cluster is a group of computers on Clemson’s campus. These computers are much more powerful than your laptop or even desktops in the lab.</p>
-<p>Running computational chemistry calculations requires the use of these powerful computers. For research, you will log into the Palmetto Cluster remotely.</p>
-</section>
-<section id="logging-in" class="level2">
-<h2 class="anchored" data-anchor-id="logging-in">Logging in</h2>
-<ol type="1">
-<li>Open your termial (Terminal on Macs, PowerShell on Windows)</li>
-<li>Type <strong><code>ssh [username]@slogin.palmetto.clemson.edu</code></strong></li>
-<li>Enter your password</li>
-</ol>
-<p>This logs you in to a computer called the “login node”. “Node” is a computing term for a single computational unit within a cluster of computers.</p>
-</section>
-<section id="directory-structure-and-creating-files" class="level2">
-<h2 class="anchored" data-anchor-id="directory-structure-and-creating-files">Directory Structure and Creating Files</h2>
-<p>Just as your laptop has folders and files, you can create folders and files on Palmetto. In computing, folders are called directories.</p>
-<ol type="1">
-<li><p>Make a new directory to store your tutorials.</p>
-<p><strong><code>mkdir tutorials</code></strong></p></li>
-<li><p>To check your work, type <strong><code>ls</code></strong> to list all directories and files. You should see <code>tutorials</code>.</p></li>
-<li><p>Make a file in the tutorials directory. First, move into that directory.</p>
-<p><strong><code>cd tutorials</code></strong></p></li>
-<li><p>What would you see if you typed <strong><code>ls</code></strong> here? Try it to check your understanding.</p></li>
-<li><p>To open a new file called <code>my_file</code>, type</p>
-<p><strong><code>vim my_file</code></strong></p>
-<p>This opens a new file with an editor called <code>vim</code>.</p></li>
-<li><p>To write in this file, press <code>a</code> for <code>append</code>. Then begin typing a phrase.</p></li>
-<li><p>Once you have finished typing, press <code>esc</code> to leave editing mode.</p></li>
-<li><p>To save and close your file, type <code>:wq</code>. <code>w</code> is for <code>write</code> (or save) and <code>q</code> is for <code>quit</code>.</p></li>
-</ol>
-</section>
-<section id="check-your-understanding" class="level2">
-<h2 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h2>
-<div class="quiz">
-<p>
-<b>If you were to type ls here, what would you see?</b>
-</p>
-<p><button onclick="wrong()">No files</button> <button onclick="correct()">A file named my_file</button></p>
-</div>
 <script>
-function correct() {
-  alert("Correct! ls lists files in your directory which now includes your new file);
-}
-function wrong() {
-  alert("Try again.");
+const password = "h2so4";  
+const userPass = prompt("Enter password to access this page:");
+if(userPass !== password){
+  alert("Incorrect password! Redirecting...");
+  window.location.href = "/";  // send them back to homepage
 }
 </script>
-<ol start="9" type="1">
-<li><p>Now, let’s add to the file. Paste the following text into <code>my_file</code>. To paste, open the file, type <code>a</code>, and right-click paste. Save and close using <code>:wq</code>.</p></li>
-<li><p>There are a few options for viewing the contents of this file.</p></li>
+<section id="configurational-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="configurational-sampling">Configurational Sampling</h2>
+<p>Description.</p>
+</section>
+<section id="dft-optimizations" class="level2">
+<h2 class="anchored" data-anchor-id="dft-optimizations">DFT Optimizations</h2>
+<p>To start, make sure all xyz files from configurational sampling are in folders GA/20K, GA/20K-1, GA/200K, GA/PM7, etc.</p>
+<p>At the same level as GA, make the directories QM/wb97xd-ultrafine. Copy all uniqueStructures-*.data files to wb97xd-ultrafine/.</p>
+<p>Within wb97xd-ultrafine, run <strong><code>opt_wb97xd.py uniqueStructures-PM7.data -h</code></strong> to see options for submission.</p>
+<p>Once you are ready, run the command with your options set. Then, run <strong><code>sbatch run_gaussian.slurm</code></strong> to submit all jobs listed in the com_list.txt file.</p>
+<p>Confirm that all optimizations have completed by running <strong><code>check_opts.py</code></strong>. Any files that terminated early due to wall time limits will be printed to the screen.</p>
+<p>To rerun these, you can either:</p>
+<ol type="1">
+<li><p><strong><code>sbatch --array=17,33 run_gaussian.slurm</code></strong> using the array number of the jobs that need to be rerun.</p></li>
+<li><p>Update com_list.txt to include only the jobs that need rerunning.</p></li>
 </ol>
-<ul>
-<li>Use cat to view all contents. <code>cat my_file</code></li>
-<li>Use tail to view the end of the file. <code>tail my_file</code></li>
-<li>Use head to view the beginning of the file. <code>head my_file</code></li>
-</ul>
-<ol start="11" type="1">
-<li>Insert vim tutorial</li>
-</ol>
-<div id="water_viewer" style="width: 350px; height: 350px; position: relative;">
-
-</div>
-<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
-<script>
-  const element = document.getElementById("water_viewer");
-  const viewer = $3Dmol.createViewer(element, {
-    backgroundColor: "white"
-  });
-
-  const xyz = `
-3
-water
-O  0.000000  0.000000  0.000000
-H  0.757160  0.586260  0.000000
-H -0.757160  0.586260  0.000000
-`;
-
-  viewer.addModel(xyz, "xyz");
-  viewer.setStyle({}, {stick: {radius: 0.15}});
-  viewer.addStyle({elem: "O"}, {sphere: {scale: 0.35}});
-  viewer.addStyle({elem: "H"}, {sphere: {scale: 0.25}});
-  viewer.zoomTo();
-  viewer.render();
-</script>
+<p>Wait for these jobs to finish, then run <strong><code>check_opts.py</code></strong> one more time to ensure that all optimizations have completed.</p>
+</section>
+<section id="determine-unique-structures" class="level2">
+<h2 class="anchored" data-anchor-id="determine-unique-structures">Determine Unique Structures</h2>
+<p><strong><code>getRotConsts-wb97xd.csh</code></strong></p>
+<p><strong><code>similarityAnalysis.py uf rotConstsData_C</code></strong></p>
+</section>
+<section id="process-data" class="level2">
+<h2 class="anchored" data-anchor-id="process-data">Process Data</h2>
+</section>
+<section id="dlpno-single-point-energies" class="level2">
+<h2 class="anchored" data-anchor-id="dlpno-single-point-energies">DLPNO Single Point Energies</h2>
+<p>Make a directory within QM/wb97xd-ultrafine called dlpno.</p>
+<p>Copy uniqueStructures-uf.data to dlpno/. Move into dlpno, and edit the dlpno/uniqueStructures-uf.data to include only the files with relative energies within 6-8 kcal/mol. (If you are unsure, consult someone.)</p>
+<p>Run <strong><code>make_dlpno_inps.py</code></strong> to generate DLPNO-CCSD(T) input files and the slurm script. This script has the following options:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 21%">
+<col style="width: 31%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Flag</th>
+<th>Default</th>
+<th>Description</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>--aug</td>
+<td>--aug=haug</td>
+<td>augmentation type of basis set</td>
+<td>haug, aug, or noaug</td>
+</tr>
+<tr class="even">
+<td>--zeta</td>
+<td>--zeta=D,T,Q</td>
+<td>basis set zeta-levels</td>
+<td>D,T,Q,5,6</td>
+</tr>
+<tr class="odd">
+<td>--nproc</td>
+<td>--nproc=12</td>
+<td>number of cores/processors</td>
+<td>any integer (check <code>freestd</code>)</td>
+</tr>
+<tr class="even">
+<td>--mem</td>
+<td>--mem=100g</td>
+<td>amount of SLURM memory per job</td>
+<td>any integer followed by <code>g</code></td>
+</tr>
+<tr class="odd">
+<td>--time</td>
+<td>--time=24:00:00</td>
+<td>wall time per job</td>
+<td>hours:minutes:seconds</td>
+</tr>
+<tr class="even">
+<td>--constraint</td>
+<td>--constraint=cpu_gen_cascadelake</td>
+<td>CPU name</td>
+<td>cpu_gen_broadwell, cpu_gen_sapphirerapids, cpu_gen_cascadelake, or none</td>
+</tr>
+<tr class="odd">
+<td>--scratch</td>
+<td>--scratch=shared</td>
+<td>shared or local scratch</td>
+<td>shared, local</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
 </section>

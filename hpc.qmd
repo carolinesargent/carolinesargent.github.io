@@ -14,38 +14,52 @@ Running computational chemistry calculations requires the use of these powerful 
 
 This logs you in to a computer called the "login node". "Node" is a computing term for a single computational unit within a cluster of computers.
 
-## Directory Structure
+## Directory Structure and Creating Files
 Just as your laptop has folders and files, you can create folders and files on Palmetto. In computing, folders are called directories.
 
 1. Make a new directory to store your tutorials. 
+   
    **`mkdir tutorials`**
 2. To check your work, type **`ls`** to list all directories and files. You should see `tutorials`.
 3. Make a file in the tutorials directory. First, move into that directory.
+
    **`cd tutorials`**
 4. What would you see if you typed **`ls`** here? Try it to check your understanding. 
 5. To open a new file called `my_file`, type
+   
    **`vim my_file`**
+   
    This opens a new file with an editor called `vim`.
-6. 
+6. To write in this file, press `a` for `append`. Then begin typing a phrase.
+7. Once you have finished typing, press `esc` to leave editing mode.
+8. To save and close your file, type `:wq`. `w` is for `write` (or save) and `q` is for `quit`.
 
 ## Check your understanding
 
 <div class="quiz">
-  <p><b>Which physical effect is missing from Hartree–Fock?</b></p>
-  <button onclick="wrong()">Exchange</button>
-  <button onclick="correct()">Dynamic correlation</button>
-  <button onclick="wrong()">Pauli exclusion</button>
+  <p><b>If you were to type ls here, what would you see?</b></p>
+  <button onclick="wrong()">No files</button>
+  <button onclick="correct()">A file named my_file</button>
 </div>
 
 <script>
 function correct() {
-  alert("Correct! HF includes exchange but neglects electron correlation.");
+  alert("Correct! ls lists files in your directory which now includes your new file);
 }
 function wrong() {
   alert("Try again.");
 }
 </script>
 
+9. Now, let's add to the file. Paste the following text into `my_file`. To paste, open the file, type `a`, and right-click paste. Save and close using `:wq`.
+
+10. There are a few options for viewing the contents of this file.
+
+   - Use cat to view all contents. `cat my_file`
+   - Use tail to view the end of the file. `tail my_file`
+   - Use head to view the beginning of the file. `head my_file`
+
+11. Insert vim tutorial
 
 <div id="water_viewer" style="width: 350px; height: 350px; position: relative;"></div>
 
