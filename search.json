@@ -42,48 +42,6 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
-    "objectID": "aerosols.html",
-    "href": "aerosols.html",
-    "title": "Aerosols",
-    "section": "",
-    "text": "Description."
-  },
-  {
-    "objectID": "aerosols.html#configurational-sampling",
-    "href": "aerosols.html#configurational-sampling",
-    "title": "Aerosols",
-    "section": "",
-    "text": "Description."
-  },
-  {
-    "objectID": "aerosols.html#dft-optimizations",
-    "href": "aerosols.html#dft-optimizations",
-    "title": "Aerosols",
-    "section": "DFT Optimizations",
-    "text": "DFT Optimizations\nTo start, make sure all xyz files from configurational sampling are in folders GA/20K, GA/20K-1, GA/200K, GA/PM7, etc.\nAt the same level as GA, make the directories QM/wb97xd-ultrafine. Copy all uniqueStructures-*.data files to wb97xd-ultrafine/.\nWithin wb97xd-ultrafine, run opt_wb97xd.py uniqueStructures-PM7.data -h to see options for submission.\nOnce you are ready, run the command with your options set. Then, run sbatch run_gaussian.slurm to submit all jobs listed in the com_list.txt file.\nConfirm that all optimizations have completed by running check_opts.py. Any files that terminated early due to wall time limits will be printed to the screen.\nTo rerun these, you can either:\n\nsbatch --array=17,33 run_gaussian.slurm using the array number of the jobs that need to be rerun.\nUpdate com_list.txt to include only the jobs that need rerunning.\n\nWait for these jobs to finish, then run check_opts.py one more time to ensure that all optimizations have completed."
-  },
-  {
-    "objectID": "aerosols.html#determine-unique-structures",
-    "href": "aerosols.html#determine-unique-structures",
-    "title": "Aerosols",
-    "section": "Determine Unique Structures",
-    "text": "Determine Unique Structures\ngetRotConsts-wb97xd.csh\nsimilarityAnalysis.py uf rotConstsData_C"
-  },
-  {
-    "objectID": "aerosols.html#process-data",
-    "href": "aerosols.html#process-data",
-    "title": "Aerosols",
-    "section": "Process Data",
-    "text": "Process Data"
-  },
-  {
-    "objectID": "aerosols.html#dlpno-single-point-energies",
-    "href": "aerosols.html#dlpno-single-point-energies",
-    "title": "Aerosols",
-    "section": "DLPNO Single Point Energies",
-    "text": "DLPNO Single Point Energies\nMake a directory within QM/wb97xd-ultrafine called dlpno.\nCopy uniqueStructures-uf.data to dlpno/. Move into dlpno, and edit the dlpno/uniqueStructures-uf.data to include only the files with relative energies within 6-8 kcal/mol. (If you are unsure, consult someone.)\nRun make_dlpno_inps.py to generate DLPNO-CCSD(T) input files and the slurm script. This script has the following options:\n\n\n\n\n\n\n\n\n\nFlag\nDefault\nDescription\nOptions\n\n\n\n\n--aug\n--aug=haug\naugmentation type of basis set\nhaug, aug, or noaug\n\n\n--zeta\n--zeta=D,T,Q\nbasis set zeta-levels\nD,T,Q,5,6\n\n\n--nproc\n--nproc=12\nnumber of cores/processors\nany integer (check freestd)\n\n\n--mem\n--mem=100g\namount of SLURM memory per job\nany integer followed by g\n\n\n--time\n--time=24:00:00\nwall time per job\nhours:minutes:seconds\n\n\n--constraint\n--constraint=cpu_gen_cascadelake\nCPU name\ncpu_gen_broadwell, cpu_gen_sapphirerapids, cpu_gen_cascadelake, or none\n\n\n--scratch\n--scratch=shared\nshared or local scratch\nshared, local"
-  },
-  {
     "objectID": "linux.html",
     "href": "linux.html",
     "title": "Linux Commands",
@@ -102,7 +60,7 @@
     "href": "linux.html#logging-in",
     "title": "Linux Commands",
     "section": "Logging in",
-    "text": "Logging in\n\nOpen your termial (Terminal on Macs, PowerShell on Windows)\nType ssh [username]@slogin.palmetto.clemson.edu\nEnter your password"
+    "text": "Logging in\n\nOpen your termial (Terminal on Macs, PowerShell on Windows)\nType ssh [username]@slogin.palmetto.clemson.edu\nEnter your password\n\nscp/rsync"
   },
   {
     "objectID": "about.html",
