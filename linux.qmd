@@ -12,3 +12,4 @@ Running computational chemistry calculations requires the use of these powerful 
 2. Type **`ssh [username]@slogin.palmetto.clemson.edu`**
 3. Enter your password
 
+scp/rsync
